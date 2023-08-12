@@ -1,6 +1,6 @@
 # zosma-sd-worker
 
-Distributed Worker Node for generating image from text prompt
+Distributed Network Worker Node for Generating Image from Text Prompt
 
 
 ## Setup
@@ -39,7 +39,13 @@ REDIS_ADDR=x.x.x.x:6379
 REDIS_PASSWORD=xxx
 SD_API_HOST=http://auto:7860
 ```
+Setup Firewall. Worker polls the server for the work. Disable unwanted ports.
+```
+sudo ufw enable
 
+#Allow required ports, if any. example:
+sudo ufw allow 22
+```
 Stable Diffusion with AUTOMATIC1111
 ```
 docker compose --profile download up --build
@@ -50,3 +56,4 @@ docker compose --profile auto up --build
 ## References
 https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html  
 https://github.com/AbdBarho/stable-diffusion-webui-docker  
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-22-04  
