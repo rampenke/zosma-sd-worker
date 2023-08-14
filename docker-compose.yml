@@ -27,6 +27,7 @@ services:
 
   auto: &automatic
     <<: *base_service
+    restart: always
     profiles: ["auto"]
     build: ./services/AUTOMATIC1111
     image: sd-auto:63
@@ -35,6 +36,7 @@ services:
 
   worker:
     profiles: ["auto"]
+    restart: always
     depends_on:
       - auto
     image: mcntech/zosma-worker:v0.01
