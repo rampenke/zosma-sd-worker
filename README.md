@@ -32,12 +32,12 @@ Check Cuda continer
 sudo docker run --rm --runtime=nvidia --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
 ```
 
-Create .env file for the worker from .env_example
+Create .env file for the workershim from .env_example
 
 ```
 REDIS_ADDR=x.x.x.x:6379
 REDIS_PASSWORD=xxx
-SD_API_HOST=http://auto:7860
+SD_API_HOST=http://worker:7860
 ```
 Setup Firewall. Worker polls the server for the work. Disable unwanted ports.
 ```
@@ -49,7 +49,7 @@ sudo ufw allow 22
 Stable Diffusion with AUTOMATIC1111
 ```
 docker compose --profile download up --build
-docker compose --profile auto up --build
+docker compose --profile worker up --build
 ```
 
 

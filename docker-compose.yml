@@ -25,21 +25,21 @@ services:
     volumes:
       - *v1
 
-  auto: &automatic
+  zosma-sd-worker:
     <<: *base_service
     restart: always
-    profiles: ["auto"]
+    profiles: ["worker"]
     build: ./services/AUTOMATIC1111
-    image: sd-auto:63
+    image: zosma-sd-worker
     environment:
       - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api
 
-  worker:
-    profiles: ["auto"]
+  zosma-sd-workershim:
+    profiles: ["worker"]
     restart: always
     depends_on:
-      - auto
-    image: mcntech/zosma-worker:v0.01
+      - zosma-sd-worker
+    image: mcntech/zosma-sd-workershim:v0.02
     env_file:
       - .env
 
