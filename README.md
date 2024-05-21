@@ -1,6 +1,8 @@
 # zosma-sd-worker
 
-Distributed Network Worker Node for Generating Image from Text Prompt
+**Distributed Network Worker Node for Image Generation from Text Prompts**
+
+This repository hosts the setup and deployment tools for a distributed network of worker nodes designed to generate images from text prompts. It leverages the power of NVIDIA RTX 3090 GPUs within an Ubuntu 22.04 environment, utilizing NVIDIA Docker containers for optimal performance. The worker nodes are configured to communicate with a central server via Redis for task management and use the Stable Diffusion model with the AUTOMATIC1111 interface for generating detailed images based on provided text prompts. This setup is designed for scalability and high-performance computing, making it suitable for deployment in environments requiring rapid response and high throughput in image generation tasks. The repository also includes security configurations to manage and restrict network access, ensuring a secure operational framework.
 
 
 ## Setup
