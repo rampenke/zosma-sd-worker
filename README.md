@@ -32,6 +32,9 @@ Check Cuda continer
 sudo docker run --rm --runtime=nvidia --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
 ```
 
+## Configuration fro workershim 
+workership interfaces stable diffusion stack with task dispatch system.
+
 Create .env file for the workershim from .env_example
 
 ```
@@ -39,6 +42,9 @@ REDIS_ADDR=x.x.x.x:6379
 REDIS_PASSWORD=xxx
 SD_API_HOST=http://worker:7860
 ```
+SD_API_HOST points to the endpoint exposed by stable diffusion (AUTOMATIC1111)
+REDIS_ADDR and REDIS_PASSWORD are used to query for task using asynq task dispatch system
+
 Setup Firewall. Worker polls the server for the work. Disable unwanted ports.
 ```
 sudo ufw enable
